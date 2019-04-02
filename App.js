@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
+import Pin from "./Pin";
 
 class HomeScreen extends React.Component {
   render() {
@@ -14,8 +15,15 @@ class HomeScreen extends React.Component {
 
 const AppNavigator = createStackNavigator({
   Home: {
-    screen: HomeScreen
+    screen: HomeScreen,
+    Pin: Pin,
   }
 });
 
-export default createAppContainer(AppNavigator);
+const AppContainer = createAppContainer(AppNavigator);
+
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}
